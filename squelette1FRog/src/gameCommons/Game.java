@@ -1,14 +1,17 @@
 package gameCommons;
 
-import java.awt.Color;
-import java.util.Random;
-
 import graphicalElements.Element;
 import graphicalElements.IFroggerGraphics;
+
+import java.awt.*;
+import java.util.Random;
 
 public class Game {
 
 	public final Random randomGen = new Random();
+
+	// Afin d'éviter la victoire après la défaite
+	private boolean detectedLose;
 
 	// Caracteristique de la partie
 	public final int width;
@@ -106,7 +109,8 @@ public class Game {
 		environment.update();
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
 		testLose();
-		testWin();
+		if(testLose()) { detectedLose = true; }
+		if(!detectedLose) { testWin(); }
 	}
 
 }
