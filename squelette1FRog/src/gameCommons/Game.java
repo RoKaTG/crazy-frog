@@ -10,8 +10,8 @@ public class Game {
 
 	public final Random randomGen = new Random();
 
-	// Afin d'éviter la victoire après la défaite
-	private boolean detectedLose;
+	// Afin d'éviter la victoire après la défaite et inversement
+	private boolean detectedEnd;
 
 	// Caracteristique de la partie
 	public final int width;
@@ -108,9 +108,14 @@ public class Game {
 		graphic.clear();
 		environment.update();
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
-		testLose();
-		if(testLose()) { detectedLose = true; }
-		if(!detectedLose) { testWin(); }
+		if(!detectedEnd){
+			if(testLose()) {
+				detectedEnd = true;
+			}
+			if (testWin()) {
+				detectedEnd = true;
+			}
+		}
 	}
 
 }
