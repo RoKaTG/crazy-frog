@@ -27,6 +27,11 @@ public interface IEnvironment {
 	 */
 	public void addLane();
 
+	/**
+	 * Change l'ordonnée des voitures et lignes
+	 *
+	 * @param i
+	 */
 	public void changeOrd(int i);
 
 	/**
