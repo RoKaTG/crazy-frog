@@ -18,6 +18,8 @@ public class Game {
 	public final int height;
 	public final int minSpeedInTimerLoops;
 	public final double defaultDensity;
+	public int score=0;
+	public int record=0;
 
 	// Lien aux objets utilis�s
 	private IEnvironment environment;
@@ -25,7 +27,7 @@ public class Game {
 	private IFroggerGraphics graphic;
 
 	/**
-	 * 
+	 *
 	 * @param graphic
 	 *            l'interface graphique
 	 * @param width
@@ -48,7 +50,7 @@ public class Game {
 
 	/**
 	 * Lie l'objet frog � la partie
-	 * 
+	 *
 	 * @param frog
 	 */
 	public void setFrog(IFrog frog) {
@@ -57,7 +59,7 @@ public class Game {
 
 	/**
 	 * Lie l'objet environment a la partie
-	 * 
+	 *
 	 * @param environment
 	 */
 	public void setEnvironment(IEnvironment environment) {
@@ -65,7 +67,7 @@ public class Game {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return l'interface graphique
 	 */
 	public IFroggerGraphics getGraphic() {
@@ -75,12 +77,12 @@ public class Game {
 	/**
 	 * Teste si la partie est perdue et lance un �cran de fin appropri� si tel
 	 * est le cas
-	 * 
+	 *
 	 * @return true si le partie est perdue
 	 */
 	public boolean testLose() {
 		if(!environment.isSafe(frog.getPosition())) {
-			graphic.endGameScreen("You Lost");
+			graphic.endGameScreen("Game Over! Score : "+record);
 			return true;
 		}
 		return false;
@@ -89,7 +91,7 @@ public class Game {
 	/**
 	 * Teste si la partie est gagnee et lance un �cran de fin appropri� si tel
 	 * est le cas
-	 * 
+	 *
 	 * @return true si la partie est gagn�e
 	 */
 	public boolean testWin() {
@@ -99,6 +101,10 @@ public class Game {
 		}
 		return false;
 	}
+
+	public void addLane(){this.environment.addLane();}
+
+	public void changeOrd(int i){this.environment.changeOrd(i);}
 
 	/**
 	 * Actualise l'environnement, affiche la grenouille et verifie la fin de
@@ -117,5 +123,4 @@ public class Game {
 			}
 		}
 	}
-
 }

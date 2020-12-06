@@ -17,7 +17,7 @@ public class Lane {
 	public Lane(Game game, int ord, double density){
 		this.game = game;
 		this.ord = ord;
-		this.speed = game.randomGen.nextInt(game.minSpeedInTimerLoops) + 1;
+		this.speed = game.randomGen.nextInt(game.minSpeedInTimerLoops) + 3;
 		this.leftToRight = game.randomGen.nextBoolean();
 		this.density = density;
 	}
@@ -68,6 +68,13 @@ public class Lane {
 			}
 		}
 		return true;
+	}
+
+	public void changeOrd(int i){
+		for(Car car:cars){
+			car.changeOrd(i);
+		}
+		this.ord +=i;
 	}
 
 	/*

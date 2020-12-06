@@ -42,10 +42,14 @@ public class Car {
 
 	public boolean isInGame(){
 		if(leftToRight){
-			return this.leftPosition.absc <= this.game.width-1;
+			return this.leftPosition.absc < this.game.width;
 		} else {
-			return this.leftPosition.absc-this.length >= 0;
+			return this.leftPosition.absc+this.length > 1;
 		}
+	}
+
+	public void changeOrd(int i){
+		this.leftPosition.ord += i;
 	}
 
 	/* Fourni : addToGraphics() permettant d'ajouter un element graphique correspondant a la voiture*/
