@@ -1,0 +1,37 @@
+                                                                         Projet L2 IPO
+
+Nous avons fait les parties 1, 2, 3 et aussi 4 du projet, elles sont toutes fonctionnelles. 
+Mise à part ce qui était demander de base, nous avons rajouté le timer ainsi qu’un 
+affichage de score. Pour la première partie aucune difficulté n’a été rencontrer.
+
+Ensuite pour la partie 2 nous avons compléter l’environment de sorte à ne pas avoir de 
+bug de jeu qui se finis sans aucune raison en utilisant deux méthodes : isSafe ainsi que 
+isWinningPosition tout en modifiant le Lane et Car.java pour avoir une génération de 
+voiture aléatoire sur toutes les lignes, on peut ici remarquer que nous avons eu des 
+difficulté « d’organisation », en effet, à chaque nouvelle création de méthode il fallait 
+l’implémenter dans une autre classe et la même se dérouler au niveau de certaine 
+variable (public/protected etc), cela a d’ailleurs provoqué l’affichage de message 
+d’erreur lors de l’exécution du main, le jeu était fonctionnel mais le terminal nous 
+indiquez plusieurs erreurs. 
+
+Tous ces problèmes on était simplement régler en utilisant l’aide IntelliJ après cela 
+nous avions donc une version sable et présentable du jeu mise à part un bug au niveau 
+de l’interface graphique, après plusieurs parties les affichages de défaites ou victoires 
+se superposé dans la fenêtre du jeu de plus les voitures en fin d’écran n’était pas 
+supprimé et étaient encore visible. Nous avons donc amélioré l’affichage graphique pour y remédier.
+
+Ensuite, pour la version infinie du jeu Frogger, les voitures, au debut, ne se deplacer pas mais rester fixe dû à un problème 
+de codage au niveau de leftPosition qui ne faisait rien bougeait. 
+Pour avoir un environment infinie, nous sommes partis sur un principe de codage simple, 
+l’ajout d’une ligne avec un changement de coordonnées (l’ordonnée) ainsi qu’une update de l’environment qui supprime 
+les lignes non visibles.
+
+Nous avions voulu faire pour la partie 5 du projet, 
+un autre rendu graphique avec des sprites et templates retro du jeu frogger sans grand succès,
+en effet, après avoir créer du code permettant d’assimiler à l’environment les différents sprites,
+nous n’avons pu modifier la main correctement pour que les sprites s’affiche en jeu et 
+nous avons donc abandonner cette idée en revenant sur une version du projet plus stable.
+Se n’est pas tout, nous avons aussi essayé de faire une version avec 2 joueurs 
+mais encore une fois il y avait des gros problèmes, en effet, 
+le code pour faire bouger les deux grenouilles de manière indépendantes était fonctionnel, 
+mais nous n’arrivions pas à afficher et les 2 grenouilles pour qu’elles soient prises en compte dans le jeu.
