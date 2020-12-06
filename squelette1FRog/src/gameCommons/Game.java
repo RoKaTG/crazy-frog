@@ -20,6 +20,7 @@ public class Game {
 	public final double defaultDensity;
 	public int score=0;
 	public int record=0;
+	public int time=0;
 
 	// Lien aux objets utilis�s
 	private IEnvironment environment;
@@ -96,7 +97,7 @@ public class Game {
 	 */
 	public boolean testWin() {
 		if(environment.isWinningPosition(frog.getPosition())) {
-			graphic.endGameScreen("You Won");
+			graphic.endGameScreen("You Won in :"+time/8+"s");
 			return true;
 		}
 		return false;
@@ -115,6 +116,7 @@ public class Game {
 		environment.update();
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
 		if(!detectedEnd){
+			time++;
 			if(testLose()) {
 				detectedEnd = true;
 			}
