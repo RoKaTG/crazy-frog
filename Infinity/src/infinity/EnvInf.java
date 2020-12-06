@@ -13,10 +13,10 @@ public class EnvInf implements IEnvironment{
 
     public EnvInf(Game game){
         this.game = game;
-        for(int i=1; i<game.height-1; i++){
+        for(int i=1; i<game.height; i++){
             this.lanes.add(new Lane(game, i, game.defaultDensity));
         }
-        for(int i=0; i<1000; i++) {
+        for(int i=0; i<100; i++) {
             update();
         }
     }
@@ -35,7 +35,10 @@ public class EnvInf implements IEnvironment{
     }
 
     public void addLane(){
-        this.lanes.add(new Lane(game, lanes.size(), game.defaultDensity));
+        this.lanes.add(new Lane(game, game.height, game.defaultDensity));
+        for(int i=0; i<100; i++) {
+            lanes.get(lanes.size()-1).update();
+        }
     }
 
     public void changeOrd(int i){

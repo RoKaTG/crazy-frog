@@ -30,15 +30,15 @@ public class FrogInf implements IFrog {
 	@Override
 	public void move(Direction key) {
 		if(key == Direction.up) {
-			this.game.score++;
-			if(this.position.ord == 8){
-				this.game.changeOrd(-1);
-				this.game.addLane();
-			} else{
-				this.position.ord++;
-			}
 			if(this.game.score > this.game.record){
 				this.game.record = this.game.score;
+			}
+			this.game.score++;
+			if(this.position.ord > this.game.height/2){
+				this.game.addLane();
+				this.game.changeOrd(-1);
+			} else{
+				this.position.ord++;
 			}
 		}
 		if(key == Direction.down) {
